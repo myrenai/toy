@@ -114,4 +114,7 @@
 	</build>
 
 	
+	<modules>
+		<module>spring-hibernate</module>
+	</modules>
 </project>

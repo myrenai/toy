@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>pe.jiyoung.toy</groupId>
+		<artifactId>spring</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>spring-jpa</artifactId>
+	
+	<properties>
+		<!-- 2. Spring -->
+		<spring-data-jpa.version>1.8.0.RELEASE</spring-data-jpa.version>
+		
+		<!-- 10. Hibernate / JPA -->
+		<hibernate.version>4.3.8.Final</hibernate.version>
+		<hibernate-validator.version>4.3.1.Final</hibernate-validator.version>
+		<mysql.version>5.1.22</mysql.version>
+		<tomcat-jdbc.version>7.0.42</tomcat-jdbc.version>
+	</properties>
+	
+	<dependencies>
+		<!-- 10. Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jdbc</artifactId>
+			<version>${tomcat-jdbc.version}</version>
+		</dependency>
+		
+		<!-- Local Test ENV -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+	</dependencies>
+</project>

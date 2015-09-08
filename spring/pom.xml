@@ -9,7 +9,7 @@
 	<groupId>pe.jiyoung.toy</groupId>
 	<artifactId>spring</artifactId>
 	
-	
+	<packaging>pom</packaging>
 	<properties>
 		<!-- 2. Spring -->
 		<spring-framework.version>4.1.6.RELEASE</spring-framework.version>
@@ -76,4 +76,8 @@
 		
 	</dependencies>
 	
+
+	<modules>
+		<module>spring-jpa</module>
+	</modules>
 </project>
