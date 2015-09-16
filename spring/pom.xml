@@ -79,5 +79,6 @@
 
 	<modules>
 		<module>spring-jpa</module>
+		<module>qna</module>
 	</modules>
 </project>
