@@ -14,6 +14,19 @@
 	</properties>
 
 	<dependencies>
+	   
+        <dependency>
+            <groupId>pe.jiyoung.toy</groupId>
+            <artifactId>spring-common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+            
+        <dependency>
+            <groupId>pe.jiyoung.toy</groupId>
+            <artifactId>spring-jpa</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>

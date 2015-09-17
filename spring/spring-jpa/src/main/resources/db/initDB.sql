@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS toy;
+GRANT ALL PRIVILEGES ON toy.* TO pc@localhost IDENTIFIED BY 'pc';
+
+USE toy;
+
+CREATE TABLE IF NOT EXISTS users (
+  userId VARCHAR(12) NULL PRIMARY KEY,
+  password VARCHAR(30) NOT NULL,
+  name  VARCHAR(30) NOT NULL,
+  email VARCHAR(50),
+  INDEX(name)
+) engine=InnoDB;
