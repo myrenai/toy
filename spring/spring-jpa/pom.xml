@@ -20,6 +20,14 @@
 	</properties>
 	
 	<dependencies>
+	
+		<dependency>
+			<groupId>pe.jiyoung.toy</groupId>
+			<artifactId>spring-common</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		
+		<!-- Spring db related -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
@@ -41,25 +49,38 @@
 			<version>1.8.0.RELEASE</version>
 		</dependency>
 		
-		<!-- 10. Hibernate -->
+		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
 		<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>${hibernate-validator.version}</version>
 		</dependency>
 		
+		<!-- Tomcat dababase pool-->
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jdbc</artifactId>
 			<version>${tomcat-jdbc.version}</version>
 		</dependency>
 		
-		<!-- Local Test ENV -->
+		<!-- HikariCP dababase pool-->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		
+		<!-- MySQL driver -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
