@@ -1,0 +1,14 @@
+
+If you are trying to ignore changes to a file that's already tracked in the repository 
+(e.g. a dev.properties file that you would need to change for your local environment but you would never want to check in these changes) than what you want to do is:
+
+git update-index --assume-unchanged <file>
+
+If you wanna start tracking changes again
+
+git update-index --no-assume-unchanged <file>
+
+
+Update: Since people have been asking, here's a convenient (and updated since commented on below) alias for seeing which files are currently "ignored" (--assume-unchanged) in your local workspace
+
+$ git config --global alias.ignored = !git ls-files -v | grep "^[[:lower:]]"
