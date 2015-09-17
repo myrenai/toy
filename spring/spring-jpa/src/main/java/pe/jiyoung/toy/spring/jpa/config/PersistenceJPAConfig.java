@@ -2,10 +2,10 @@ package pe.jiyoung.toy.spring.jpa.config;
 
 import java.util.Properties;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
@@ -26,7 +26,7 @@ import pe.jiyoung.toy.spring.jpa.repository.ToyRepositoryFactoryBean;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages="pe.jiyoung.toy.repository", repositoryFactoryBeanClass = ToyRepositoryFactoryBean.class)
-public class PersistenceJPAConfig implements InitializingBean{
+public class PersistenceJPAConfig{
 
     public static String MYSQL = "MYSQL";
     public static String ORACLE = "ORACLE";
@@ -80,8 +80,8 @@ public class PersistenceJPAConfig implements InitializingBean{
         return null;
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
+    @PostConstruct
+    public void init() throws Exception {
 
         this.url = ToyPropertyResolver.getProperty(this.getRealValue(ToyPropertyResolver.getProperty(JDBC_URL)));
         this.un = ToyPropertyResolver.getProperty(this.getRealValue(ToyPropertyResolver.getProperty(JDBC_USERNAME)));

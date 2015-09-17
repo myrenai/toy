@@ -110,7 +110,6 @@
 
 	
 	<modules>
-		<module>spring-hibernate</module>
-		<module>slipp-qna</module>
+		<module>spring</module>
 	</modules>
 </project>

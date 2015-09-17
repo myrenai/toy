@@ -9,17 +9,19 @@
 		
     <context:property-placeholder location="classpath:properties/toyConf.properties" />
     
-    <bean id="appProperties" class="pe.jiyoung.toy.spring.common.util.ToyPropertyResolver">
-        <property name="ignoreResourceNotFound" value="false"/>
+    <bean id="appProperties" class="pe.jiyoung.toy.spring.common.util.PropertiesTest">
+        <property name="test" value="${toy.externalConfig.home}"/>
+    </bean>
+    
+    <bean id="appProperties2" class="pe.jiyoung.toy.spring.common.util.ToyPropertyResolver">
         <property name="locations">
             <list>
-                <!-- <value>classpath:${toy.externalConfig.home}/dbconf.properties</value> -->
-                <value>file:${toy.externalConfig.home}/dbconf.properties</value>
-                <value>file:${toy.externalConfig.home}/idNpw.properties</value>
+                <value>classpath:${toy.externalConfig.home}/dbconf.properties</value>
+                <value>classpath:${toy.externalConfig.home}/idNpw.properties</value>
             </list>
         </property>
     </bean>
     
-    <context:component-scan base-package="pe.jiyoung.toy.spring.jpa" />
+    <context:component-scan base-package="pe.jiyoung.toy.spring.common" />
     <context:annotation-config />
 </beans>

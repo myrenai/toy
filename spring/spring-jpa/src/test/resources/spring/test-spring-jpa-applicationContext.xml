@@ -10,12 +10,10 @@
     <context:property-placeholder location="classpath:properties/toyConf.properties" />
     
     <bean id="appProperties" class="pe.jiyoung.toy.spring.common.util.ToyPropertyResolver">
-        <property name="ignoreResourceNotFound" value="false"/>
         <property name="locations">
             <list>
-                <!-- <value>classpath:${toy.externalConfig.home}/dbconf.properties</value> -->
-                <value>classpath:externalConfHome/dbconf.properties</value>
-                <value>classpath:externalConfHome/idNpw.properties</value>
+                <value>classpath:${toy.externalConfig.home}/dbconf.properties</value>
+                <value>classpath:${toy.externalConfig.home}/idNpw.properties</value>
             </list>
         </property>
     </bean>

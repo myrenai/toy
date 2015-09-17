@@ -3,31 +3,36 @@ package pe.jiyoung.toy.spring.common.util;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
-public class ToyPropertyResolver extends PropertyPlaceholderConfigurer {
+public class ToyPropertyResolver {
 
-    private static Map<String, String> propertiesMap = new HashMap<String, String>();
+    private List<String> locations;
 
-    @Override
-    protected void processProperties(ConfigurableListableBeanFactory beanFactory, Properties properties) {
-        super.processProperties(beanFactory, properties);
-        for (final Object propertyKey : properties.keySet()) {
-            propertiesMap.put(propertyKey.toString(), this.resolvePlaceholder(propertyKey.toString(), properties));
+    public void setLocations(final List<String> lacations) throws IOException {
+        this.locations = lacations;
+        for(final String path : this.locations){
+            final Resource resource = ToyResourceLoader.getResource(path);
+            final Properties properties = new Properties();
+            properties.load(resource.getInputStream());
+            for (final Object propertyKey : properties.keySet()) {
+                propertiesMap.put(propertyKey.toString(), properties.getProperty((String) propertyKey));
+            }
         }
     }
 
-    public static String getProperty(String name) {
+    private static Map<String, String> propertiesMap = new HashMap<String, String>();
+
+    public static String getProperty(final String name) {
         return propertiesMap.get(name);
     }
 
-    public static String setProperty(String name, String value) {
+    public static String setProperty(final String name, final String value) {
         return propertiesMap.put(name, value);
     }
 

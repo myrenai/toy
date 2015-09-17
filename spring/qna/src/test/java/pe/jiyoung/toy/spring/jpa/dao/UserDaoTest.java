@@ -24,6 +24,7 @@ public class UserDaoTest extends TestBase{
     public void setup(){
     }
 
+
     @Autowired
     private DataSource dataSource;
 
