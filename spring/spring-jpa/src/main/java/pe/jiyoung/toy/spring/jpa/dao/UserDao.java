@@ -56,4 +56,9 @@ public class UserDao extends JdbcDaoSupport{
         return this.getJdbcTemplate().queryForObject(sql, rowMapper, userId);
     }
 
+    public int createUser(final Map<String, Object> user) {
+        final String sql = "insert into users values(?,?,?,?)";
+        return this.getJdbcTemplate().update(sql, user.get("userId"), user.get("password"), user.get("name"), user.get("email"));
+    }
+
 }

@@ -1,5 +1,6 @@
 package pe.jiyoung.toy.spring.jpa.dao;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -58,6 +59,24 @@ public class UserDaoTest extends TestBase{
             entry.getValue();
             LOGGER.debug("{} = {}", entry.getKey(), entry.getValue());
         }
+    }
+
+    @Test
+    public void create() throws Exception {
+        final Map<String, Object> user = this.buildUser(1);
+        this.userDao.createUser(user);
+        final Map<String, Object> user2 = this.userDao.findById("userId"+1);
+        Assert.isTrue(user.get("userId").equals(user2.get("userId")));
+    }
+
+
+    private Map<String, Object> buildUser(final int index) {
+        final Map<String, Object> user = new HashMap<String, Object>();
+        user.put("userId", "userId" + index);
+        user.put("password", "password" + index);
+        user.put("name", "name" + index);
+        user.put("email", "email" + index + "@gmail.com");
+        return user;
     }
 
 }
