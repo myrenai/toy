@@ -73,12 +73,20 @@ public class PersistenceJPAConfig implements InitializingBean{
 
     private final Properties jpaProperties = new Properties();
 
+    private String getRealValue(final String property){
+        if(property != null && property.startsWith("<") && property.endsWith(">")){
+            return property.substring(1, property.length()-1);
+        }
+        return null;
+    }
+
     @Override
     public void afterPropertiesSet() throws Exception {
 
-        this.url = ToyPropertyResolver.getProperty(JDBC_URL);
-        this.un = ToyPropertyResolver.getProperty(JDBC_USERNAME);
-        this.pw = ToyPropertyResolver.getProperty(JDBC_PASSWORD);
+        this.url = ToyPropertyResolver.getProperty(this.getRealValue(ToyPropertyResolver.getProperty(JDBC_URL)));
+        this.un = ToyPropertyResolver.getProperty(this.getRealValue(ToyPropertyResolver.getProperty(JDBC_USERNAME)));
+        this.pw = ToyPropertyResolver.getProperty(this.getRealValue(ToyPropertyResolver.getProperty(JDBC_PASSWORD)));
+
         this.poolName = ToyPropertyResolver.getProperty(JDBC_POOL_NAME);
         this.driverClassName = ToyPropertyResolver.getProperty(JDBC_DRIVER_CLASSNAME);
         this.poolInitSize = ToyPropertyResolver.getPropertyAsInt(JDBC_POOL_INIT_SIZE);

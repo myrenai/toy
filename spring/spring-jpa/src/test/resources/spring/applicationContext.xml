@@ -15,6 +15,7 @@
             <list>
                 <!-- <value>classpath:${toy.externalConfig.home}/dbconf.properties</value> -->
                 <value>classpath:externalConfHome/dbconf.properties</value>
+                <value>classpath:externalConfHome/idNpw.properties</value>
             </list>
         </property>
     </bean>
