@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
-    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx" 
     xmlns:jpa="http://www.springframework.org/schema/data/jpa"
     xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
@@ -12,18 +15,20 @@
         http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-        
-    <bean id="appProperties" class="pe.jiyoung.toy.spring.common.util.ToyPropertyResolver">
-        <property name="externalConfRoot" value="file:/your/externalConfHome"></property>
-        <property name="ignoreUnresolvablePlaceholders" value="false"/>
+    
+    <bean id="appProperties-common" class="pe.jiyoung.toy.spring.common.util.ToyPropertyResolver">
+        <!-- <property name="externalConfRoot" value="file:/your/externalConfHome"></property>-->
+        <property name="externalConfRoot" value="classpath:externalConfHome"></property>
+        <property name="order" value="2"></property>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
         <property name="locations">
             <list>
-                <value>dbconf.properties</value>
-                <value>idNpw.properties</value>
+                <value>common1.properties</value>
+                <value>common2.properties</value>
             </list>
         </property>
     </bean>
     
-    <context:component-scan base-package="pe.jiyoung.toy.spring.jpa" />
+    <context:component-scan base-package="pe.jiyoung.toy.spring.common" />
     <context:annotation-config />
 </beans>

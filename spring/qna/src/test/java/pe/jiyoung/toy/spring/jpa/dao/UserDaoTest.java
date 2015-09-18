@@ -46,7 +46,6 @@ public class UserDaoTest extends TestBase{
   INDEX(name)
 )
      */
-
     @Test
     public void findById(){
         final String userId = "myrenai";

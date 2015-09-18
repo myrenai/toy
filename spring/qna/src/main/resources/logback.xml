@@ -7,7 +7,7 @@
 		</layout>
 	</appender>
 	
-	<logger name="pe.jiyoung.toy.qna" level="DEBUG" />
+	<logger name="pe.jiyoung.toy" level="DEBUG" />
 	
 	<logger name="org.hibernate" level="WARN" />
 	
