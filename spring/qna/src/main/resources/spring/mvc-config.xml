@@ -39,5 +39,8 @@
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="2" />
 	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" 
+	p:basename="messages/errMessages" p:defaultEncoding="UTF-8"></bean>
 
 </beans>

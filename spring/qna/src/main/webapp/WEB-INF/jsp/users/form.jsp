@@ -18,6 +18,7 @@
 						<label class="control-label" for="userId">User Id</label>
 						<div class="controls">
 							<form:input path="userId" />
+							<form:errors path="userId" cssClass="error" />
 						</div>
 					</div>
 
@@ -25,6 +26,7 @@
 						<label class="control-label" for="password">Password</label>
 						<div class="controls">
                             <form:input path="password" />
+                            <form:errors path="userId" cssClass="error" />
 						</div>
 					</div>
 
@@ -32,6 +34,7 @@
 						<label class="control-label" for="name">Name</label>
 						<div class="controls">
 							<form:input path="name" />
+							<form:errors path="name" cssClass="error" />
 						</div>
 					</div>
 
@@ -39,6 +42,7 @@
 						<label class="control-label" for="email">Email</label>
 						<div class="controls">
 							<form:input path="email" />
+							<form:errors path="email" cssClass="error" />
 						</div>
 					</div>
 					<br>

@@ -1,11 +1,34 @@
 package pe.jiyoung.toy.qna.domain;
 
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class User {
 
+    @NotEmpty
+    @Size(min = 2, max = 14)
     private String userId;
-    private String name;
-    private String email;
+
+    @NotEmpty
+    @Size(min = 2, max = 14)
     private String password;
+
+    @NotEmpty
+    private String name;
+
+    @Email
+    private String email;
+
+    public User(){}
+    public User(final String userId, final String password, final String name, final String email) {
+        super();
+        this.userId = userId;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+    }
 
     public String getUserId() {
         return this.userId;
