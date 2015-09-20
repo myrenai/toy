@@ -23,6 +23,12 @@ public class HomeController {
         return "fhome";
     }
 
+    @RequestMapping("/")
+    public String home(){
+        LOGGER.info("jhome");
+        return "jhome";
+    }
+
     @RequestMapping("/jsp")
     public ModelAndView jspHome(){
         LOGGER.info("jhome");

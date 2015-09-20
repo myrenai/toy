@@ -8,13 +8,13 @@
 	</parent>
 	<artifactId>qna</artifactId>
 	<packaging>war</packaging>
-
 	<properties>
 		<tomcat.servlet.version>7.0.47</tomcat.servlet.version>
+		<json.simple.version>1.1.1</json.simple.version>
+		<jackson.version>1.9.13</jackson.version>
 	</properties>
 
 	<dependencies>
-	   
         <dependency>
             <groupId>pe.jiyoung.toy</groupId>
             <artifactId>spring-common</artifactId>
@@ -61,6 +61,18 @@
 			<artifactId>javax.el</artifactId>
 			<version>2.2.4</version>
 		</dependency>
+		
+        <!-- JSON -->
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>${json.simple.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
 	</dependencies>
 
 </project>
