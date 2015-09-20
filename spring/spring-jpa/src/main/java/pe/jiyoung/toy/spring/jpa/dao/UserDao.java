@@ -8,7 +8,10 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
@@ -20,6 +23,8 @@ import pe.jiyoung.toy.spring.common.util.ToyResourceLoader;
 
 @Component
 public class UserDao extends JdbcDaoSupport{
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserDao.class);
 
     private final static String INITDB = "jdbc.initDB";
 
@@ -53,12 +58,24 @@ public class UserDao extends JdbcDaoSupport{
             }
         };
 
-        return this.getJdbcTemplate().queryForObject(sql, rowMapper, userId);
+        try {
+            return this.getJdbcTemplate().queryForObject(sql, rowMapper, userId);
+        } catch (final EmptyResultDataAccessException e) {
+            LOGGER.warn("{} is not found", userId);
+            return null;
+
+        }
     }
 
-    public int createUser(final Map<String, Object> user) {
+    public int create(final Map<String, Object> user) {
         final String sql = "insert into users values(?,?,?,?)";
         return this.getJdbcTemplate().update(sql, user.get("userId"), user.get("password"), user.get("name"), user.get("email"));
     }
+
+    public int update(final Map<String, Object> user) {
+        final String sql = "update users set password = ?, name = ?, email = ? where userId = ?";
+        return this.getJdbcTemplate().update(sql, user.get("password"), user.get("name"), user.get("email"), user.get("userId"));
+    }
+
 
 }

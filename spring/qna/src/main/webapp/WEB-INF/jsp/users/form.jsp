@@ -12,20 +12,38 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				User create form
-				<form:form modelAttribute="user" cssClass="form-horizontal" action="/qna/users" method="post">
+
+				<c:choose>
+					<c:when test="${empty user.userId}">
+						<c:set var="method" value="post" />
+					</c:when>
+					<c:otherwise>
+                         <c:set var="method" value="put" />
+					</c:otherwise>
+				</c:choose>
+
+				<form:form modelAttribute="user" cssClass="form-horizontal" action="/qna/users" method="${method}">
 					<div class="control-group">
 						<label class="control-label" for="userId">User Id</label>
 						<div class="controls">
-							<form:input path="userId" />
-							<form:errors path="userId" cssClass="error" />
+						<c:choose>
+						  <c:when test="${empty user.userId}">
+						    <form:input path="userId" />
+                            <form:errors path="userId" cssClass="error" />
+						  </c:when>
+						  <c:otherwise>
+						      ${user.userId}
+						      <form:hidden path="userId"/>
+						  </c:otherwise>
+						</c:choose>
+
 						</div>
 					</div>
 
 					<div class="control-group">
 						<label class="control-label" for="password">Password</label>
 						<div class="controls">
-                            <form:input path="password" />
+                            <form:password  path="password" />
                             <form:errors path="userId" cssClass="error" />
 						</div>
 					</div>

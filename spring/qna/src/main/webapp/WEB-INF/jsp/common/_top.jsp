@@ -1,4 +1,5 @@
-<!-- Navigation -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -9,23 +10,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/qna/jsp">Home</a>
+                <a class="navbar-brand" href="/qna/jsp">My Toy</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="/qna/users/form">Add User</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="/qna/">Home</a></li>
+					<c:choose>
+						<c:when test="${not empty sessionScope.userId}">
+							<li><a href="#">Services</a></li>
+							<li><a href="/qna/users/${sessionScope.userId}/form">Settings</a></li>
+							<li><a href="/qna/users/logout">Logout</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="#">Services</a></li>
+							<li><a href="/qna/users/form">Subscription</a></li>
+							<li><a href="/qna/users/login/form">Login</a></li>
+						</c:otherwise>
+					</c:choose>
+				</ul>
+			</div>
+		<!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>

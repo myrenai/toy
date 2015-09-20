@@ -62,7 +62,7 @@ public class UserDaoTest extends TestBase{
     @Test
     public void create() throws Exception {
         final Map<String, Object> user = this.buildUser(1);
-        this.userDao.createUser(user);
+        this.userDao.create(user);
         final Map<String, Object> user2 = this.userDao.findById("userId"+1);
         Assert.isTrue(user.get("userId").equals(user2.get("userId")));
     }
