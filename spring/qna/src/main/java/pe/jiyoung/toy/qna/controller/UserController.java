@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import pe.jiyoung.toy.qna.domain.Authenticate;
 import pe.jiyoung.toy.qna.domain.User;
 import pe.jiyoung.toy.qna.util.ConvertUtil;
-import pe.jiyoung.toy.spring.jpa.dao.UserDao;
+import pe.jiyoung.toy.spring.jdbc.dao.UserDao;
 
 @Controller
 @RequestMapping(value = "/users")

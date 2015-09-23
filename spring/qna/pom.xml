@@ -23,7 +23,7 @@
             
         <dependency>
             <groupId>pe.jiyoung.toy</groupId>
-            <artifactId>spring-jpa</artifactId>
+            <artifactId>spring-jdbc</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         
@@ -73,6 +73,27 @@
             <artifactId>jackson-mapper-asl</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+        
+                
+        <!-- Servlet, JSP, JSTL -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.2.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        
 	</dependencies>
 
 </project>

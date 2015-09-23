@@ -27,8 +27,9 @@
 		<!-- 9. Test Artifacts -->
 		<junit.version>4.12</junit.version>
 
-		<!-- 10. Java EE / Java SE dependencies -->
+		<!-- 10. Java EE / Java SE dependencies 
 		<tomcat.servlet.version>7.0.47</tomcat.servlet.version>
+		-->
 	</properties>
 	
 	<dependencies>
@@ -59,7 +60,7 @@
 			<version>1.9.5</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.jayway.jsonpath</groupId>
 			<artifactId>json-path</artifactId>
 			<version>0.8.1</version>
@@ -77,6 +78,7 @@
 			<version>${tomcat.servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		-->
 	</dependencies>
 	
 	<build>

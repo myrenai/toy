@@ -14,7 +14,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 
-import pe.jiyoung.toy.spring.jpa.TestBase;
+import pe.jiyoung.toy.spring.common.TestBase;
+import pe.jiyoung.toy.spring.jdbc.dao.UserDao;
 
 public class UserDaoTest extends TestBase{
 

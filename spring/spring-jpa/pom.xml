@@ -27,17 +27,13 @@
 			<version>${project.parent.version}</version>
 		</dependency>
 		
+		<dependency>
+            <groupId>pe.jiyoung.toy</groupId>
+            <artifactId>spring-common-db</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+		
 		<!-- Spring db related -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${spring-framework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${spring-framework.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -65,26 +61,6 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>${hibernate-validator.version}</version>
 		</dependency>
-		
-		<!-- Tomcat dababase pool-->
-		<dependency>
-			<groupId>org.apache.tomcat</groupId>
-			<artifactId>tomcat-jdbc</artifactId>
-			<version>${tomcat-jdbc.version}</version>
-		</dependency>
-		
-		<!-- HikariCP dababase pool-->
-		<dependency>
-			<groupId>com.zaxxer</groupId>
-			<artifactId>HikariCP</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-		
-		<!-- MySQL driver -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.version}</version>
-		</dependency>
+
 	</dependencies>
 </project>

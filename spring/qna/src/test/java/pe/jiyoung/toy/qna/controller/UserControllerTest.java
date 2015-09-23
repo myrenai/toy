@@ -14,7 +14,8 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import pe.jiyoung.toy.spring.jpa.dao.UserDao;
+import pe.jiyoung.toy.spring.jdbc.dao.UserDao;
+
 
 
 /**
@@ -43,8 +44,8 @@ public class UserControllerTest {
     public void createValid() throws Exception {
         this.mockMvc
         .perform(post("/users")
-                .param("name", "JiyoungPark")
-                .param("password", "56")
+                .param("name", "JiyoungPark5")
+                .param("password", "56366")
                 .param("userId", "myrenai3")
                 .param("email", ""))
         .andDo(print())

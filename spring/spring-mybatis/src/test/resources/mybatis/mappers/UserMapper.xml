@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userMapper">
+	<select id="findUserById" resultType="hashmap">
+		select * from users where userId = #{userId}
+	</select>
+
+	<insert id="createUser" >
+		insert into users values(#{userId},#{password},#{name},#{name})
+	</insert>
+	
+	<insert id="updateUser" >
+        update users set password = #{password}, name = #{name}, email = #{name} where userId = #{userId}
+    </insert>
+
+</mapper>

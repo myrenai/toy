@@ -13,17 +13,9 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
         
-    <bean id="appProperties" class="pe.jiyoung.toy.spring.common.util.ToyPropertyResolver">
-        <property name="externalConfRoot" value="file:/media/jiyoung/Ubuntu/GIT/toy/spring/externalConfHome"></property>
-        <property name="ignoreUnresolvablePlaceholders" value="false"/>
-        <property name="locations">
-            <list>
-                <value>dbconf.properties</value>
-                <value>idNpw.properties</value>
-            </list>
-        </property>
-    </bean>
+    <import resource="classpath*:spring/spring-common-db-applicationContext.xml"/>
     
     <context:component-scan base-package="pe.jiyoung.toy.spring.jpa" />
     <context:annotation-config />
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>

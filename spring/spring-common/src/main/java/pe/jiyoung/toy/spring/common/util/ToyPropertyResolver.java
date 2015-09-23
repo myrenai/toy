@@ -16,20 +16,7 @@ import org.springframework.core.io.support.PropertiesLoaderUtils;
 public class ToyPropertyResolver extends PropertyPlaceholderConfigurer{
 
     private String externalConfRoot;
-
-    //    private List<String> locations;
-    //
-    //    public void setLocations(final List<String> lacations) throws IOException {
-    //        this.locations = lacations;
-    //        for(final String path : this.locations){
-    //            final Resource resource = ToyResourceLoader.getResource(path);
-    //            final Properties properties = new Properties();
-    //            properties.load(resource.getInputStream());
-    //            for (final Object propertyKey : properties.keySet()) {
-    //                propertiesMap.put(propertyKey.toString(), properties.getProperty((String) propertyKey));
-    //            }
-    //        }
-    //    }
+    private static Map<String, String> propertiesMap = new HashMap<String, String>();
 
     public void setExternalConfRoot(final String externalConfRoot) throws FileNotFoundException, IOException {
         final Resource confHome = ToyResourceLoader.getResource(externalConfRoot);
@@ -57,8 +44,6 @@ public class ToyPropertyResolver extends PropertyPlaceholderConfigurer{
             propertiesMap.put(propertyKey.toString(), this.resolvePlaceholder(propertyKey.toString(), properties));
         }
     }
-
-    private static Map<String, String> propertiesMap = new HashMap<String, String>();
 
     public static String getProperty(final String name) {
         return propertiesMap.get(name);
